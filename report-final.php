@@ -382,7 +382,7 @@ document.getElementById("formSearch").addEventListener("submit", function(e){
         return;
     }
 
-    window.open("export_pdf.php?ncvs=" + encodeURIComponent(ncvs), "_blank");
+    window.open("export_pdf_final.php?ncvs=" + encodeURIComponent(ncvs), "_blank");
   });
  </script>
 
