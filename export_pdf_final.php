@@ -147,6 +147,6 @@ $dompdf->setPaper('A4', 'portrait');
 $dompdf->render();
 
 // download
-$dompdf->stream("stock_opname_$NCVS.pdf", ["Attachment" => false]);
+$dompdf->stream("stock_opname_Final_$NCVS.pdf", ["Attachment" => false]);
 
 ?>
