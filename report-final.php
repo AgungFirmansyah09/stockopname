@@ -399,7 +399,7 @@ document.getElementById("formSearch").addEventListener("submit", function(e){
         return;
     }
 
-    window.location.href = "export_csv.php?ncvs=" + encodeURIComponent(ncvs);
+    window.location.href = "export_csv_final.php?ncvs=" + encodeURIComponent(ncvs);
 });
 
 </script>
