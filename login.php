@@ -65,6 +65,9 @@ if (isset($_POST["login"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stock opname | Log in</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="dist/img/logo-stock.png">
+  
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -73,11 +76,51 @@ if (isset($_POST["login"])) {
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  <style>
+    body.login-page::before {
+      backdrop-filter: blur(2px);
+    }
+
+    body.login-page {
+      background: url('dist/img/bg-stock-opname.jpeg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Overlay gelap biar teks jelas */
+    body.login-page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+    }
+
+
+    .login-box {
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-logo a {
+      color: #ffffff;
+    }
+
+    .login-card-body {
+      border-radius: 10px;
+    }
+  </style>
+
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index2.php"><b>Stock</b>Opname</a>
+    <a href="#"><b>Stock</b>Opname</a>
   </div>
   <!-- /.login-logo -->
   <div class="card">

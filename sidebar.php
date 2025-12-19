@@ -13,7 +13,7 @@ require_once __DIR__ . '/function.php';
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">
+                <a href="index.php" class="d-block">
                     <?php echo htmlspecialchars($_SESSION['username'] ?? ''); ?>
                 </a>
             </div>
@@ -28,7 +28,7 @@ require_once __DIR__ . '/function.php';
 
                 <!-- Dashboard: Tampil untuk semua authorize -->
                 <li class="nav-item">
-                    <a href="./index.php" class="nav-link">
+                    <a href="./Dashboard.php" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>

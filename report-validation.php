@@ -30,7 +30,10 @@ if (isset($_GET['ncvs'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stock Opname | Form-Input</title>
+  <title>Stock Opname | Report-Validation</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="dist/img/logo-stock.png">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -101,7 +104,7 @@ if (isset($_GET['ncvs'])) {
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.php" class="nav-link">Home</a>
+        <a href="index.php" class="nav-link">Home</a>
       </li>
     </ul>
   </nav>

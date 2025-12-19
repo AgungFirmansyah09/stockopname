@@ -661,14 +661,4 @@ if (isset($_POST['upload-final-data'])) {
     header("Location: input-final-data.php");
     exit;
 }
-
-
-
-
-
-
-
-
-
-
 ?>

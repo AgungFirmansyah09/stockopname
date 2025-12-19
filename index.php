@@ -4,11 +4,6 @@ require_once __DIR__ . '/function.php';
 require_once 'auth.php';
 checkAuth();
 
-
-$databyncvs = mysqli_query($conn, 
-"SELECT ncvs, SUM(qty) AS data_ncvs 
-FROM `tbl_transac` GROUP by ncvs;");
-
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +11,10 @@ FROM `tbl_transac` GROUP by ncvs;");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stock Opname | Dashboard</title>
+  <title>Stock Opname | Home</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="dist/img/logo-stock.png">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -39,6 +37,7 @@ FROM `tbl_transac` GROUP by ncvs;");
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -55,7 +54,7 @@ FROM `tbl_transac` GROUP by ncvs;");
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.php" class="nav-link">Home</a>
+        <a href="index.php" class="nav-link">Home</a>
       </li>
       <!-- <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -84,12 +83,11 @@ FROM `tbl_transac` GROUP by ncvs;");
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Welcome, <?php echo htmlspecialchars($_SESSION['username'] ?? ''); ?>!</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -102,21 +100,216 @@ FROM `tbl_transac` GROUP by ncvs;");
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <?php foreach ($databyncvs as $ncvs): ?>
-          <div class="col-lg-2 col-4">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h1><strong><?= $ncvs['data_ncvs']; ?></strong></h1>
-                <h4><?= $ncvs['ncvs']; ?></h4>
+          <div class="col-sm-12 mt-4">
+            <div class="card shadow-sm border-0 position-relative">
+
+              <!-- Ribbon -->
+              <div class="ribbon-wrapper">
+                <div class="ribbon bg-warning text-white">
+                  Roles
+                </div>
               </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+
+              <!-- Card Header -->
+              <div class="card-header bg-info text-white fw-bold fs-5">
+                <b>ROLE OF STOCK OPNAME</b>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+
+              <!-- Card Body -->
+              <div class="card-body bg-light p-0">
+                <ol class="list-group list-group-numbered list-group-flush">
+
+                  <li class="list-group-item">
+                    Material yang dihitung saat SO adalah
+                    <b>Upper, Outsole, Texon & Insole</b>.
+                  </li>
+
+                  <li class="list-group-item">
+                    <b>Upper</b> yang set dengan <b>Texon, Insole & Outsole</b>,
+                    dijadikan satu dan disusun pada
+                    <b>Conveyor Assembling</b>.
+                  </li>
+
+                  <li class="list-group-item">
+                    Area Stock Opname mulai dari
+                    <b>Out Stitching (Rack Upper)</b> sampai
+                    <b>Finishing</b>.
+                  </li>
+
+                  <li class="list-group-item">
+                    Untuk Material yang <b>SET</b>
+                    (<b>Upper, Texon, Insole & Outsole</b>) dan
+                    sepatu yang ada di area <b>CTPAT</b>
+                    diinput menggunakan
+                    <b>System Aplikasi SO</b>.
+                  </li>
+
+                  <li class="list-group-item">
+                    Untuk Material yang <b>NON SET</b>
+                    (<b>Upper, Texon, Insole & Outsole</b>)
+                    diinput menggunakan
+                    <b>System Aplikasi SO</b>.
+                  </li>
+
+                  <li class="list-group-item">
+                    Komponen <b>Upper</b> yang sudah dilakukan proses
+                    <b>shoe lace</b>, disimpan ke dalam
+                    <b>Rack Upper</b> dan didata
+                    (<b>tidak ada upper shoe lace di area meja QC</b>).
+                  </li>
+
+                  <!-- Highlight SET -->
+                  <li class="list-group-item bg-warning-subtle">
+                    <b>Inventory Komponen SET</b> pada badan line
+                    (<i>Lasting s/d Finishing</i>) maksimal
+                    <b>2 Lot (252 × 2 = 504 pasang)</b>,
+                    dan pada area <b>CTPAT</b> maksimal
+                    <b>2 Lot (504 pasang)</b>.
+                  </li>
+
+                  <!-- Highlight NON SET -->
+                  <li class="list-group-item bg-warning-subtle">
+                    <b>Inventory Komponen NON SET</b>
+                    (<b>Upper, Texon, Insole & Outsole</b>)
+                    pada <b>Rack</b> maksimal
+                    <b>4 Lot (252 × 4 = 1008 pasang)</b>.
+                  </li>
+
+                  <li class="list-group-item">
+                    Jika ada <b>Upper</b> yang sudah diproses
+                    <b>shoe lace</b> dan berada di luar
+                    <b>NCVS (line)</b>, maka upper tersebut
+                    didata dan dimasukkan ke dalam line.
+                  </li>
+
+                  <li class="list-group-item">
+                    Untuk <b>Upper / Shoe</b> dengan kategori
+                    <b>C-Grade</b> tidak dimasukkan ke dalam
+                    data <b>SO</b>, dan diberi
+                    <b>Identitas</b> jika berada di area
+                    <b>NCVS</b>.
+                  </li>
+
+                  <li class="list-group-item">
+                    Untuk line <b>shift 1</b> tanggal
+                    <b>26 & 27</b>, <b>NCVS (107, 109 & 112)</b>
+                    hanya mendata komponen
+                    <b>NON SET</b>
+                    (<b>Upper, Texon, Insole</b>).
+                  </li>
+
+                </ol>
+              </div>
             </div>
           </div>
-          <?php endforeach; ?>
+
+          <!-- // Noted -->
+          <div class="col-sm-12 mt-4">
+            <div class="card shadow-sm border-0">
+
+              <!-- Card Header -->
+              <div class="card-header bg-secondary text-white fw-bold fs-5">
+                <b>Noted</b>
+              </div>
+
+              <!-- Card Body -->
+              <div class="card-body bg-light">
+                <ul class="list-group list-group-flush">
+
+                  <li class="list-group-item bg-light">
+                    <b>Material SET</b> adalah material yang
+                    <b>lengkap secara jumlah, model, style, dan size</b>
+                    dengan <b>4 komponen</b>:
+                    <b>Upper, Texon, Insole & Outsole</b>.
+                  </li>
+
+                  <li class="list-group-item bg-light">
+                    <b>Material NON SET</b> adalah material yang
+                    <b>tidak lengkap secara jumlah, model, style, dan size</b>
+                    dengan <b>4 komponen</b>:
+                    <b>Upper, Texon, Insole & Outsole</b>.
+                  </li>
+
+                  <li class="list-group-item bg-light">
+                    <b>Form Audit</b> dibuat <b>2 rangkap</b>,
+                    ditandatangani oleh <b>VSS</b> dan <b>Auditor</b>.
+                    <ul class="mt-2">
+                      <li>1 rangkap disimpan oleh <b>VSS</b></li>
+                      <li>1 rangkap diberikan kepada <b>Auditor</b>
+                        untuk diserahkan ke <b>Team Accounting</b></li>
+                    </ul>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- // Code Oracle -->
+          <div class="col-sm-12 mt-4">
+            <div class="card shadow-sm border-0">
+
+              <!-- Card Header -->
+              <div class="card-header bg-dark text-white fw-bold fs-5">
+                <b>Code Oracle</b>
+              </div>
+
+              <!-- Card Body -->
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover align-middle mb-0">
+
+                    <thead class="table-secondary text-center">
+                      <tr>
+                        <th style="width: 15%">Code Oracle</th>
+                        <th style="width: 25%">Untuk</th>
+                        <th>Remarks</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td class="fw-bold text-center">SA.UPR</td>
+                        <td>Upper Set, Upper Non Set & Shoe</td>
+                        <td>
+                          Upper yang sudah <b>Set</b> dengan
+                          <b>Texon, Insole & Outsole</b> atau
+                          hanya <b>Upper saja</b> dan sudah
+                          menjadi <b>Sepatu</b>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="fw-bold text-center">SA.BTM</td>
+                        <td>Outsole Non Set</td>
+                        <td>Outsole yang belum <b>Set</b></td>
+                      </tr>
+
+                      <tr>
+                        <td class="fw-bold text-center">SA.UCI</td>
+                        <td>Insole Non Set</td>
+                        <td>Insole yang belum <b>Set</b></td>
+                      </tr>
+
+                      <tr>
+                        <td class="fw-bold text-center">SA.UTS</td>
+                        <td>Texon Non Set</td>
+                        <td>Texon yang belum <b>Set</b></td>
+                      </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
           <!-- ./col -->
         </div>
         <!-- /.row -->
