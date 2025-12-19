@@ -126,7 +126,8 @@ $Data_Final = mysqli_query($conn, "SELECT *
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Input Data</a></li>
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li class="breadcrumb-item">Input Data</li>
               <li class="breadcrumb-item active">Final Data SO 2025</li>
             </ol>
           </div>

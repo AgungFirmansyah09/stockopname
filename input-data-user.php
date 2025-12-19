@@ -117,7 +117,8 @@ $users = mysqli_query($conn, "SELECT * FROM `tbl_user`");
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Input Data</a></li>
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li class="breadcrumb-item">Input Data</li>
               <li class="breadcrumb-item active">Master User</li>
             </ol>
           </div>

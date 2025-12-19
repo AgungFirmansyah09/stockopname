@@ -130,8 +130,9 @@ if (isset($_GET['ncvs'])) {
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Input Data</a></li>
-              <li class="breadcrumb-item active">Data Stock Opname</li>
+              <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+              <li class="breadcrumb-item">Report</li>
+              <li class="breadcrumb-item active">Report final SO</li>
             </ol>
           </div>
         </div>
