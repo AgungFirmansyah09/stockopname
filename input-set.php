@@ -281,8 +281,8 @@ $Style = mysqli_query($conn, "SELECT * FROM tbl_master_style");
                         <br>
                         <div class="row">
                             <div class="col-2">
-                            <label>110</label>
-                            <input type="text" name="size[110]" class="form-control size-input" placeholder="0">
+                            <label>010</label>
+                            <input type="text" name="size[010]" class="form-control size-input" placeholder="0">
                             </div>
 
                             <div class="col-2">
